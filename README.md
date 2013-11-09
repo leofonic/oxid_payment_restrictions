@@ -1,11 +1,11 @@
 oxid_payment_restrictions
 =========================
 
-OXID eShop: Restrict Available Payments by Category or Theme
+OXID eShop: Restrict available payments by category or theme
 
 This module deals with two situations:
 
-1. Restrict Payments by Category: A Shop Owner might want to restrict payments for certain articles, 
+1. Restrict payments by category: A shop owner might want to restrict payments for certain articles, 
 for example some products can not be paid with Paypal due to Paypal terms and conditions. With this
 module, a hidden category "nopaypal" can be created and payment via Paypal is not possible if an
 article in basket belongs to this category.
