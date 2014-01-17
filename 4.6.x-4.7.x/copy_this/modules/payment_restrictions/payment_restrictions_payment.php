@@ -3,17 +3,15 @@
 class payment_restrictions_payment extends payment_restrictions_payment_parent 
 {
     protected $_aTemplateDisallowPayment = array(
-        'mf_mobile'=> array(
+        'mobile'=> array(
+            //example: no payment by invoice for mobile customers
             'oxidinvoice',
-            'oxiddebitnote',
-            'oxidcreditcard',
         )
     );
     protected $_aCategoryDisallowPayment = array(
-        'noinvoice'=> array(
-            'oxidinvoice',
-            'oxiddebitnote',
-            'oxidcashondel',
+        'nopaypal'=> array(
+            //example: no payment by paypal for articles in hidden category "nopaypal"
+            'oxidpaypal',
         )
     );
 
@@ -24,7 +22,9 @@ class payment_restrictions_payment extends payment_restrictions_payment_parent
             //disallowed by theme
             $oTheme = oxNew('oxTheme');
             $sThemeId = $oTheme->getActiveThemeId();
-            $aDisalllowedPayments = $this->_aTemplateDisallowPayment[$sThemeId];
+            if (is_array($aDisallowedByTheme = $this->_aTemplateDisallowPayment[$sThemeId])){
+                $aDisalllowedPayments = array_merge($aDisalllowedPayments, $aDisallowedByTheme);
+            }
             
             //disallowed by category
             $oBasket = $this->getSession()->getBasket();

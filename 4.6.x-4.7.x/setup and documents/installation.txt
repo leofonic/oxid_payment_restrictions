@@ -1,0 +1,27 @@
+------------------------------------------
+OXID-Modul "Payment Restrictions"
+------------------------------------------
+
+by Zunderweb
+
+http://www.zunderweb.de
+
+Frank Zunderer
+Waldstr. 22
+82205 Gilching
+Tel.: +49-8105-777250
+e-Mail: info@zunderweb.de
+
+
+Requirements: OXID Version 4.6.0 or higher
+
+Installation:
+-------------
+1) Please copy the content of the folder "copy_this" to your shop
+2) Adjust the file modules\payment_restrictions\payment_restrictions_payment.php to your needs:
+
+Array $_aTemplateDisallowPayment defines which payments are not allowed for a certain theme, 
+e.g. theme "mobile" for restriction of payments in mobile theme
+
+Array $_aCategoryDisallowPayment defines which payments are not allowed for a certain category, 
+e.g. hidden category "nopaypal" for disallowing paypal for certain articles
